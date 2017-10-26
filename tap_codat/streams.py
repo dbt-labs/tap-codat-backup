@@ -1,8 +1,3 @@
-import json
-import time
-from datetime import datetime, timedelta
-import pendulum
-from requests.exceptions import HTTPError
 import singer
 from singer import metrics
 from singer.transform import transform as tform
@@ -34,8 +29,11 @@ class Stream(object):
 
 
 class Companies(Stream):
+    def raw_fetch(self, ctx):
+        return ctx.client.GET({"path": self.path}, self.tap_stream_id)
+
     def fetch_into_cache(self, ctx):
-        resp = ctx.client.GET({"path": self.path}, self.tap_stream_id)
+        resp = self.raw_fetch(ctx)
         ctx.cache["companies"] = self.transform(ctx, resp["companies"])
 
     def sync(self, ctx):

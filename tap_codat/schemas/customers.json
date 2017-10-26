@@ -77,7 +77,8 @@
           },
           "line2": {
             "type": [
-              "null"
+              "null",
+              "string"
             ]
           }
         }
@@ -191,7 +192,8 @@
               },
               "line2": {
                 "type": [
-                  "null"
+                  "null",
+                  "string"
                 ]
               }
             }

@@ -6,9 +6,6 @@ import backoff
 BASE_URL = "https://api.codat.io"
 UAT_URL = "https://api-uat.codat.io"
 
-    # r = requests.get("https://api-uat.codat.io/companies",
-    #                  headers={"Authorization": "Basic " +  k})
-
 
 class RateLimitException(Exception):
     pass
@@ -45,7 +42,8 @@ class Client(object):
         with metrics.http_request_timer(tap_stream_id) as timer:
             response = self.prepare_and_send(request)
             timer.tags[metrics.Tag.http_status_code] = response.status_code
-        # FIXME raise RateLimitException appropriately
+        if response.status_code in [429, 503]:
+            raise RateLimitException()
         if response.status_code == 404:
             return None
         response.raise_for_status()

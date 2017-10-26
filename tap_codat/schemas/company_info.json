@@ -81,7 +81,8 @@
     },
     "accountingPlatformRef": {
       "type": [
-        "null"
+        "null",
+        "string"
       ]
     },
     "webLinks": {
@@ -140,7 +141,8 @@
     },
     "baseCurrency": {
       "type": [
-        "null"
+        "null",
+        "string"
       ]
     },
     "companyName": {

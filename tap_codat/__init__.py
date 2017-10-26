@@ -36,7 +36,7 @@ def load_and_write_schema(ctx, stream):
 
 
 def check_credentials_are_authorized(ctx):
-    pass
+    streams_.companies.raw_fetch(ctx)
 
 
 def discover(ctx):
