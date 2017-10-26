@@ -1,0 +1,72 @@
+{
+  "type": [
+    "object"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "issueDate": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "dueDate": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "customerRef": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "companyName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "amountDue": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "totalAmount": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "invoiceNumber": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  }
+}

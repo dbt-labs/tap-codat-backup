@@ -1,0 +1,101 @@
+{
+  "type": [
+    "object"
+  ],
+  "properties": {
+    "emailAddress": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "contactName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "registrationNumber": {
+      "type": [
+        "null"
+      ]
+    },
+    "supplierName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "phone": {
+      "type": [
+        "null"
+      ]
+    },
+    "addresses": {
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "region": {
+            "type": [
+              "null"
+            ]
+          },
+          "postalCode": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "line2": {
+            "type": [
+              "null"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "line1": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "country": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "city": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "taxNumber": {
+      "type": [
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

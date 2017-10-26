@@ -1,0 +1,209 @@
+{
+  "additionalProperties": false,
+  "type": [
+    "object"
+  ],
+  "properties": {
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "registrationNumber": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "emailAddress": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "defaultCurrency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "addresses": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "additionalProperties": false,
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "country": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "region": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "line1": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "city": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "postalCode": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "line2": {
+            "type": [
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "contactName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "customerName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "phone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "contacts": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "additionalProperties": false,
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "phone": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "additionalProperties": false,
+              "type": [
+                "null",
+                "object"
+              ],
+              "properties": {
+                "number": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "type": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              }
+            }
+          },
+          "address": {
+            "additionalProperties": false,
+            "type": [
+              "null",
+              "object"
+            ],
+            "properties": {
+              "type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "country": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "region": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "line1": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "city": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "postalCode": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "line2": {
+                "type": [
+                  "null"
+                ]
+              }
+            }
+          },
+          "email": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

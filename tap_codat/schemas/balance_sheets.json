@@ -1,0 +1,298 @@
+{
+  "type": [
+    "object"
+  ],
+  "properties": {
+    "liabilities": {
+      "properties": {
+        "items": {
+          "items": {
+            "properties": {
+              "items": {
+                "items": {
+                  "properties": {
+                    "items": {
+                      "items": {
+                        "properties": {
+                          "name": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          },
+                          "value": {
+                            "type": [
+                              "null",
+                              "number",
+                              "integer"
+                            ]
+                          }
+                        },
+                        "additionalProperties": false,
+                        "type": [
+                          "null",
+                          "object"
+                        ]
+                      },
+                      "type": [
+                        "null",
+                        "array"
+                      ]
+                    },
+                    "name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "value": {
+                      "type": [
+                        "null",
+                        "number",
+                        "integer"
+                      ]
+                    }
+                  },
+                  "additionalProperties": false,
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "value": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              }
+            },
+            "additionalProperties": false,
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "value": {
+          "type": [
+            "null",
+            "number"
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "netAssets": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "equity": {
+      "properties": {
+        "items": {
+          "items": {
+            "properties": {
+              "items": {
+                "items": {
+                  "properties": {
+                    "name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "value": {
+                      "type": [
+                        "null",
+                        "number",
+                        "integer"
+                      ]
+                    }
+                  },
+                  "additionalProperties": false,
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "value": {
+                "type": [
+                  "null",
+                  "number",
+                  "integer"
+                ]
+              }
+            },
+            "additionalProperties": false,
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "value": {
+          "type": [
+            "null",
+            "number"
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "assets": {
+      "properties": {
+        "items": {
+          "items": {
+            "properties": {
+              "items": {
+                "items": {
+                  "properties": {
+                    "items": {
+                      "items": {
+                        "properties": {
+                          "name": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          },
+                          "value": {
+                            "type": [
+                              "null",
+                              "number",
+                              "integer"
+                            ]
+                          }
+                        },
+                        "additionalProperties": false,
+                        "type": [
+                          "null",
+                          "object"
+                        ]
+                      },
+                      "type": [
+                        "null",
+                        "array"
+                      ]
+                    },
+                    "name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "value": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    }
+                  },
+                  "additionalProperties": false,
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "value": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              }
+            },
+            "additionalProperties": false,
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "value": {
+          "type": [
+            "null",
+            "number"
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "type": [
+        "null",
+        "object"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

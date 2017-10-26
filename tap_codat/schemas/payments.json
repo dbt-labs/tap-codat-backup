@@ -1,0 +1,107 @@
+{
+  "type": [
+    "object"
+  ],
+  "properties": {
+    "totalAmount": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "date": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "note": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "lines": {
+      "items": {
+        "properties": {
+          "links": {
+            "items": {
+              "properties": {
+                "id": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "type": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ],
+              "additionalProperties": false
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "amount": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": false
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "customerRef": {
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "companyName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

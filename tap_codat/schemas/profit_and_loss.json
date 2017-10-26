@@ -1,0 +1,260 @@
+{
+  "properties": {
+    "fromDate": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "reportDate": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "reportBasis": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "toDate": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "data": {
+      "properties": {
+        "netOperatingProfit": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "otherExpenses": {
+          "properties": {
+            "details": {
+              "properties": {
+                "exchange Gain or Loss": {
+                  "type": [
+                    "null",
+                    "number"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ],
+              "additionalProperties": false
+            },
+            "totalOtherExpenses": {
+              "type": [
+                "null",
+                "number"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": false
+        },
+        "otherIncome": {
+          "type": [
+            "null"
+          ]
+        },
+        "netOtherIncome": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "grossProfit": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "costOfSales": {
+          "properties": {
+            "totalCostOfSales": {
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "details": {
+              "properties": {
+                "cost of Sales - billable expenses": {
+                  "type": [
+                    "null",
+                    "number"
+                  ]
+                },
+                "cost of sales": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": false
+        },
+        "income": {
+          "properties": {
+            "totalIncome": {
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "details": {
+              "properties": {
+                "services": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                },
+                "sales": {
+                  "type": [
+                    "null",
+                    "number"
+                  ]
+                },
+                "markup": {
+                  "type": [
+                    "null",
+                    "number"
+                  ]
+                },
+                "billable Expenses Income": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                },
+                "sales of Product Income": {
+                  "type": [
+                    "null",
+                    "number"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": false
+        },
+        "netProfit": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "expenses": {
+          "properties": {
+            "totalExpenses": {
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "details": {
+              "properties": {
+                "utilities": {
+                  "type": [
+                    "null",
+                    "number"
+                  ]
+                },
+                "insurance Expense-General Liability Insurance": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                },
+                "janitorial Expense": {
+                  "type": [
+                    "null",
+                    "number"
+                  ]
+                },
+                "rent Expense": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                },
+                "depreciation Expense": {
+                  "type": [
+                    "null",
+                    "number"
+                  ]
+                },
+                "dues and Subscriptions": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                },
+                "interest expense": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ],
+  "additionalProperties": false
+}
