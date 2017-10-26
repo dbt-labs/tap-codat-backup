@@ -12,6 +12,8 @@ class Context(object):
     - client  - An HTTP client object for interacting with Close.io
     - catalog - A singer.catalog.Catalog. Note this will be None during
                 discovery.
+    - cache   - A place for streams to store data so it can be shared between
+                streams.
     """
     def __init__(self, config, state):
         self.config = config
@@ -20,6 +22,7 @@ class Context(object):
         self._catalog = None
         self.selected_stream_ids = None
         self.schema_dicts = None
+        self.cache = {}
 
     @property
     def catalog(self):

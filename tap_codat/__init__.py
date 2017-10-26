@@ -55,6 +55,7 @@ def discover(ctx):
 
 
 def sync(ctx):
+    streams_.companies.fetch_into_cache(ctx)
     currently_syncing = ctx.state.get("currently_syncing")
     start_idx = streams_.all_stream_ids.index(currently_syncing) \
         if currently_syncing else 0

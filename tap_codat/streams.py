@@ -1,32 +1,25 @@
-from singer import metrics
-import pendulum
+import json
 import time
 from datetime import datetime, timedelta
+import pendulum
 from requests.exceptions import HTTPError
-import json
 import singer
+from singer import metrics
+from singer.transform import transform as tform
 
 LOGGER = singer.get_logger()
 
 
 class Stream(object):
-    """Information about and functions for syncing streams.
-
-    Important class properties:
-
-    :var tap_stream_id:
-    :var pk_fields: A list of primary key fields"""
-    def __init__(self, tap_stream_id, pk_fields, path):
+    def __init__(self, tap_stream_id, pk_fields, path, format_fn=None):
         self.tap_stream_id = tap_stream_id
         self.pk_fields = pk_fields
         self.path = path
+        self.format_fn = format_fn or (lambda x: x)
 
     def metrics(self, page):
         with metrics.record_counter(self.tap_stream_id) as counter:
             counter.increment(len(page))
-
-    def format_response(self, response):
-        return [response] if type(response) != list else response
 
     def write_page(self, page):
         """Formats a list of records in place and outputs the data to
@@ -37,17 +30,51 @@ class Stream(object):
     def transform(self, ctx, records):
         ret = []
         for record in records:
-            ret.append(transform(record, ctx.schema_dicts[self.tap_stream_id]))
-        return ret
+            ret.append(tform(record, ctx.schema_dicts[self.tap_stream_id]))
+        return self.format_fn(ret)
 
 
 class Companies(Stream):
-    def sync(self, ctx):
-        req = ctx.client.create_get_request(self.path)
-        resp = ctx.client.request_with_handling(self.tap_stream_id, req)
-        self.write_page(self.transform(ctx, resp["companies"]))
+    def fetch_into_cache(self, ctx):
+        resp = ctx.client.GET({"path": self.path}, self.tap_stream_id)
+        companies = self.transform(ctx, resp["companies"])
+        ctx.cache["companies"] = companies
 
+    def sync(self, ctx):
+        self.write_page(ctx.cache["companies"])
+
+
+class Child(Stream):
+    def sync(self, ctx):
+        for company in ctx.cache["companies"]:
+            path = self.path.format(companyId=company["id"])
+            resp = ctx.client.GET({"path": path}, self.tap_stream_id, _404=[])
+            self.write_page(self.transform(ctx, resp))
+
+
+class Bills(Stream):
+    def sync(self, ctx):
+        for company in ctx.cache["companies"]:
+            path = self.path.format(companyId=company["id"])
+            resp = ctx.client.GET({"path": path}, self.tap_stream_id, _404={})
+            bills = resp.get("bills", [])
+            self.write_page(self.transform(ctx, bills))
+
+
+class CompanyInfo(Stream):
+    def sync(self, ctx):
+        for company in ctx.cache["companies"]:
+            path = self.path.format(companyId=company["id"])
+            info = ctx.client.GET({"path": path}, self.tap_stream_id, _404={})
+            info["companyId"] = company["id"]
+            self.write_page(self.transform(ctx, [info]))
+
+
+companies = Companies("companies", ["id"], "/companies")
 all_streams = [
-    Companies("companies", ["id"], "/companies"),
+    companies,
+    Child("bank_statements", ["accountName"], "/companies/{companyId}/data/bankStatements"),
+    Bills("bills", ["id"], "/companies/{companyId}/data/bills"),
+    CompanyInfo("company_info", ["companyId"], "/companies/{companyId}/data/info")
 ]
 all_stream_ids = [s.tap_stream_id for s in all_streams]
