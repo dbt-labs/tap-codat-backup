@@ -41,13 +41,13 @@ class Client(object):
                           RateLimitException,
                           max_tries=10,
                           factor=2)
-    def request_with_handling(self, request, tap_stream_id, _404=None):
+    def request_with_handling(self, request, tap_stream_id):
         with metrics.http_request_timer(tap_stream_id) as timer:
             response = self.prepare_and_send(request)
             timer.tags[metrics.Tag.http_status_code] = response.status_code
         # FIXME raise RateLimitException appropriately
-        if _404 is not None and response.status_code == 404:
-            return _404
+        if response.status_code == 404:
+            return None
         response.raise_for_status()
         return response.json()
 

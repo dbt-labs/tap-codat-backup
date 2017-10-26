@@ -17,7 +17,8 @@
     },
     "registrationNumber": {
       "type": [
-        "null"
+        "null",
+        "string"
       ]
     },
     "supplierName": {
@@ -33,7 +34,8 @@
     },
     "phone": {
       "type": [
-        "null"
+        "null",
+        "string"
       ]
     },
     "addresses": {
@@ -46,7 +48,8 @@
         "properties": {
           "region": {
             "type": [
-              "null"
+              "null",
+              "string"
             ]
           },
           "postalCode": {
@@ -57,7 +60,8 @@
           },
           "line2": {
             "type": [
-              "null"
+              "null",
+              "string"
             ]
           },
           "type": {
@@ -93,7 +97,8 @@
     },
     "taxNumber": {
       "type": [
-        "null"
+        "null",
+        "string"
       ]
     }
   },
