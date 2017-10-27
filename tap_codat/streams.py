@@ -40,7 +40,7 @@ class Companies(Stream):
         self.write_records(ctx.cache["companies"])
 
 
-class Child(Stream):
+class Basic(Stream):
     def sync(self, ctx):
         for company in ctx.cache["companies"]:
             path = self.path.format(companyId=company["id"])
@@ -49,32 +49,74 @@ class Child(Stream):
             self.write_records(records)
 
 
-def format_company_info(info, company):
-    if info is None:
+class Financials(Stream):
+    def sync(self, ctx):
+        for company in ctx.cache["companies"]:
+            path = self.path.format(companyId=company["id"])
+            params = {
+                "periodLength": ctx.config.get("financials_period_length", 1),
+                "periodsToCompare": ctx.config.get("financials_periods_to_compare", 24),
+            }
+            resp = ctx.client.GET({"path": path, "params": params}, self.tap_stream_id)
+            records = self.transform(ctx, self.format_response(resp, company))
+            self.write_records(records)
+
+
+def add_company_id(data, company):
+    for record in data:
+        record["companyId"] = company["id"]
+    return data
+
+
+def none_to_list(data, _):
+    """Converts None to a list, otherwise returns data"""
+    if data is None:
         return []
-    info["companyId"] = company["id"]
-    return [info]
+    return data
+
+
+def dict_to_list(data, _):
+    """Converts None to an empty list, otherwise wraps data in a list"""
+    if data is None:
+        return []
+    return [data]
+
+
+def key_getter(key):
+    """Returns a function that will get the specified key from the dict if it
+    exists and return an empty list otherwise."""
+    return (lambda data, _: (data or {}).get(key, []))
+
+
+def comp(f, g):
+    return lambda data, company: f(g(data, company), company)
 
 
 companies = Companies("companies", ["id"], "/companies")
 all_streams = [
     companies,
-    Child("bank_statements", ["accountName"],
+    Basic("bank_statements", ["accountName"],
           "/companies/{companyId}/data/bankStatements",
-          format_response=(lambda resp, _: resp or [])),
-    Child("bills", ["id"], "/companies/{companyId}/data/bills",
-          format_response=(lambda resp, _: (resp or {}).get("bills", []))),
-    Child("company_info", ["companyId"], "/companies/{companyId}/data/info",
-          format_response=format_company_info),
-    Child("credit_notes", ["id"], "/companies/{companyId}/data/creditNotes",
-          format_response=(lambda resp, _: (resp or {}).get("creditNotes", []))),
-    Child("customers", ["id"], "/companies/{companyId}/data/customers",
-          format_response=(lambda resp, _: (resp or {}).get("customers", []))),
-    Child("invoices", ["id"], "/companies/{companyId}/data/invoices",
-          format_response=(lambda resp, _: (resp or {}).get("invoices", []))),
-    Child("payments", ["id"], "/companies/{companyId}/data/payments",
-          format_response=(lambda resp, _: (resp or {}).get("payments", []))),
-    Child("suppliers", ["id"], "/companies/{companyId}/data/suppliers",
-          format_response=(lambda resp, _: (resp or {}).get("suppliers", []))),
+          format_response=none_to_list),
+    Basic("bills", ["id"], "/companies/{companyId}/data/bills",
+          format_response=key_getter("bills")),
+    Basic("company_info", ["companyId"], "/companies/{companyId}/data/info",
+          format_response=comp(add_company_id, dict_to_list)),
+    Basic("credit_notes", ["id"], "/companies/{companyId}/data/creditNotes",
+          format_response=key_getter("creditNotes")),
+    Basic("customers", ["id"], "/companies/{companyId}/data/customers",
+          format_response=key_getter("customers")),
+    Basic("invoices", ["id"], "/companies/{companyId}/data/invoices",
+          format_response=key_getter("invoices")),
+    Basic("payments", ["id"], "/companies/{companyId}/data/payments",
+          format_response=key_getter("payments")),
+    Basic("suppliers", ["id"], "/companies/{companyId}/data/suppliers",
+          format_response=key_getter("suppliers")),
+    Financials("balance_sheets", ["companyId"],
+               "/companies/{companyId}/data/financials/balanceSheet",
+               format_response=comp(add_company_id, dict_to_list)),
+    Financials("profit_and_loss", ["companyId"],
+               "/companies/{companyId}/data/financials/profitAndLoss",
+               format_response=comp(add_company_id, dict_to_list)),
 ]
 all_stream_ids = [s.tap_stream_id for s in all_streams]
