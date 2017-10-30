@@ -95,6 +95,9 @@ def comp(f, g):
 companies = Companies("companies", ["id"], "/companies")
 all_streams = [
     companies,
+    Basic("accounts", ["id"],
+          "/companies/{companyId}/data/accounts",
+          format_response=key_getter("accounts")),
     Basic("bank_statements", ["accountName"],
           "/companies/{companyId}/data/bankStatements",
           format_response=none_to_list),
