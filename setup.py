@@ -10,7 +10,7 @@ setup(
     classifiers=["Programming Language :: Python :: 3 :: Only"],
     py_modules=["tap_codat"],
     install_requires=[
-        "singer-python==4.0.0",
+        "singer-python==4.0.2",
         "requests",
     ],
     entry_points="""
