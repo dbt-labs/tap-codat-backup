@@ -48,6 +48,23 @@ class Basic(Stream):
             records = self.transform(ctx, self.format_response(resp, company))
             self.write_records(records)
 
+PAGE_SIZE = 500
+
+
+class Paginated(Stream):
+    def sync(self, ctx):
+        for company in ctx.cache["companies"]:
+            path = self.path.format(companyId=company["id"])
+            page = 1
+            while True:
+                params = {"pageSize": PAGE_SIZE, "page": page}
+                resp = ctx.client.GET({"path": path, "params": params}, self.tap_stream_id)
+                records = self.transform(ctx, self.format_response(resp, company))
+                self.write_records(records)
+                if len(records) < PAGE_SIZE:
+                    break
+                page += 1
+
 
 class Financials(Stream):
     def sync(self, ctx):
@@ -109,8 +126,8 @@ all_streams = [
           format_response=key_getter("creditNotes")),
     Basic("customers", ["id"], "/companies/{companyId}/data/customers",
           format_response=key_getter("customers")),
-    Basic("invoices", ["id"], "/companies/{companyId}/data/invoices",
-          format_response=key_getter("invoices")),
+    Paginated("invoices", ["id"], "/companies/{companyId}/data/invoices",
+              format_response=key_getter("invoices")),
     Basic("payments", ["id"], "/companies/{companyId}/data/payments",
           format_response=key_getter("payments")),
     Basic("suppliers", ["id"], "/companies/{companyId}/data/suppliers",
