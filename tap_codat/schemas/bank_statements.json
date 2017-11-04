@@ -3,6 +3,11 @@
     "object"
   ],
   "properties": {
+    "companyId": {
+      "type": [
+        "string"
+      ]
+    },
     "currency": {
       "type": [
         "null",
@@ -23,7 +28,6 @@
           "balance": {
             "type": [
               "null",
-              "integer",
               "number"
             ]
           },
@@ -37,7 +41,6 @@
           "amount": {
             "type": [
               "null",
-              "integer",
               "number"
             ]
           },

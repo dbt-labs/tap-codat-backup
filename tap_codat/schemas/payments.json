@@ -3,10 +3,15 @@
     "object"
   ],
   "properties": {
+    "companyId": {
+      "type": [
+        "string"
+      ]
+    },
     "totalAmount": {
       "type": [
         "null",
-        "integer"
+        "number"
       ]
     },
     "id": {
@@ -60,7 +65,7 @@
           "amount": {
             "type": [
               "null",
-              "integer"
+              "number"
             ]
           }
         },

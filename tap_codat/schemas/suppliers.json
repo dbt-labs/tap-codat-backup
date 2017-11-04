@@ -3,6 +3,11 @@
     "object"
   ],
   "properties": {
+    "companyId": {
+      "type": [
+        "string"
+      ]
+    },
     "emailAddress": {
       "type": [
         "null",

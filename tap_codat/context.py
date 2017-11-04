@@ -1,6 +1,7 @@
 import singer
 from singer import bookmarks as bks_
 from .http import Client
+from .transform import find_dt_paths
 
 
 class Context(object):
@@ -22,6 +23,7 @@ class Context(object):
         self._catalog = None
         self.selected_stream_ids = None
         self.schema_dicts = None
+        self.schema_dt_paths = None
         self.cache = {}
 
     @property
@@ -37,6 +39,10 @@ class Context(object):
         )
         self.schema_dicts = {
             stream.tap_stream_id: stream.schema.to_dict()
+            for stream in catalog.streams
+        }
+        self.schema_dt_paths = {
+            stream.tap_stream_id: find_dt_paths(stream.schema)
             for stream in catalog.streams
         }
 

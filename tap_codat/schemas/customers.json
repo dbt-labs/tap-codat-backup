@@ -9,6 +9,30 @@
         "string"
       ]
     },
+    "companyId": {
+      "type": [
+        "string"
+      ]
+    },
+    "taxNumber": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "modifiedDate": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
     "registrationNumber": {
       "type": [
         "null",

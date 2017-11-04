@@ -1,298 +1,72 @@
 {
   "type": [
+    "null",
     "object"
   ],
   "properties": {
-    "liabilities": {
-      "properties": {
-        "items": {
-          "items": {
-            "properties": {
-              "items": {
-                "items": {
-                  "properties": {
-                    "items": {
-                      "items": {
-                        "properties": {
-                          "name": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          },
-                          "value": {
-                            "type": [
-                              "null",
-                              "number",
-                              "integer"
-                            ]
-                          }
-                        },
-                        "additionalProperties": false,
-                        "type": [
-                          "null",
-                          "object"
-                        ]
-                      },
-                      "type": [
-                        "null",
-                        "array"
-                      ]
-                    },
-                    "name": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "value": {
-                      "type": [
-                        "null",
-                        "number",
-                        "integer"
-                      ]
-                    }
-                  },
-                  "additionalProperties": false,
-                  "type": [
-                    "null",
-                    "object"
-                  ]
-                },
-                "type": [
-                  "null",
-                  "array"
-                ]
-              },
-              "name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "value": {
-                "type": [
-                  "null",
-                  "number"
-                ]
-              }
-            },
-            "additionalProperties": false,
-            "type": [
-              "null",
-              "object"
-            ]
-          },
-          "type": [
-            "null",
-            "array"
-          ]
-        },
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "value": {
-          "type": [
-            "null",
-            "number"
-          ]
-        }
-      },
-      "additionalProperties": false,
+    "companyId": {
       "type": [
-        "null",
-        "object"
+        "string"
       ]
     },
-    "netAssets": {
+    "currency": {
       "type": [
         "null",
-        "number"
+        "string"
       ]
     },
-    "equity": {
-      "properties": {
-        "items": {
-          "items": {
-            "properties": {
-              "items": {
-                "items": {
-                  "properties": {
-                    "name": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "value": {
-                      "type": [
-                        "null",
-                        "number",
-                        "integer"
-                      ]
-                    }
-                  },
-                  "additionalProperties": false,
-                  "type": [
-                    "null",
-                    "object"
-                  ]
-                },
-                "type": [
-                  "null",
-                  "array"
-                ]
-              },
-              "name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "value": {
-                "type": [
-                  "null",
-                  "number",
-                  "integer"
-                ]
-              }
-            },
-            "additionalProperties": false,
+    "reports": {
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "netAssets": {
             "type": [
               "null",
-              "object"
+              "number"
             ]
           },
-          "type": [
-            "null",
-            "array"
-          ]
+          "date": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "assets": {
+            "$ref": "flattened_report"
+          },
+          "equity": {
+            "$ref": "flattened_report"
+          },
+          "liabilities": {
+            "$ref": "flattened_report"
+          }
         },
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "value": {
-          "type": [
-            "null",
-            "number"
-          ]
-        }
+        "additionalProperties": false
       },
-      "additionalProperties": false,
       "type": [
         "null",
-        "object"
+        "array"
       ]
     },
-    "assets": {
-      "properties": {
-        "items": {
-          "items": {
-            "properties": {
-              "items": {
-                "items": {
-                  "properties": {
-                    "items": {
-                      "items": {
-                        "properties": {
-                          "name": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          },
-                          "value": {
-                            "type": [
-                              "null",
-                              "number",
-                              "integer"
-                            ]
-                          }
-                        },
-                        "additionalProperties": false,
-                        "type": [
-                          "null",
-                          "object"
-                        ]
-                      },
-                      "type": [
-                        "null",
-                        "array"
-                      ]
-                    },
-                    "name": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "value": {
-                      "type": [
-                        "null",
-                        "number"
-                      ]
-                    }
-                  },
-                  "additionalProperties": false,
-                  "type": [
-                    "null",
-                    "object"
-                  ]
-                },
-                "type": [
-                  "null",
-                  "array"
-                ]
-              },
-              "name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "value": {
-                "type": [
-                  "null",
-                  "number"
-                ]
-              }
-            },
-            "additionalProperties": false,
-            "type": [
-              "null",
-              "object"
-            ]
-          },
-          "type": [
-            "null",
-            "array"
-          ]
-        },
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "value": {
-          "type": [
-            "null",
-            "number"
-          ]
-        }
-      },
-      "additionalProperties": false,
+    "mostRecentAvailableMonth": {
       "type": [
         "null",
-        "object"
+        "string"
+      ]
+    },
+    "companyId": {
+      "type": [
+        "null",
+        "string"
       ]
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "tap_schema_dependencies": [
+    "flattened_report"
+  ]
 }

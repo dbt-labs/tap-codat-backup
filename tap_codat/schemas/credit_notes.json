@@ -3,10 +3,15 @@
     "object"
   ],
   "properties": {
+    "companyId": {
+      "type": [
+        "string"
+      ]
+    },
     "remainingCredit": {
       "type": [
         "null",
-        "integer"
+        "number"
       ]
     },
     "currency": {
@@ -14,6 +19,15 @@
         "null",
         "string"
       ]
+    },
+    "paymentAllocations": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "$ref": "payment_allocations"
+      }
     },
     "id": {
       "type": [

@@ -4,6 +4,11 @@
   ],
   "additionalProperties": false,
   "properties": {
+    "companyId": {
+      "type": [
+        "string"
+      ]
+    },
     "id": {
       "type": [
         "string"
@@ -53,13 +58,114 @@
     "amountDue": {
       "type": [
         "null",
-        "integer"
+        "number"
       ]
     },
     "totalAmount": {
       "type": [
         "null",
-        "integer"
+        "number"
+      ]
+    },
+    "paymentAllocations": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "$ref": "payment_allocations"
+      }
+    },
+    "paidOnDate": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "modifiedDate": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "lineItems": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "discountAmount": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "quantity": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "subTotal": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "taxAmount": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "totalAmount": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "unitAmount": {
+            "type": [
+              "null",
+              "number"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "totalDiscount": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "totalTaxAmount": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "subTotal": {
+      "type": [
+        "null",
+        "number"
       ]
     },
     "invoiceNumber": {
@@ -68,5 +174,8 @@
         "string"
       ]
     }
-  }
+  },
+  "tap_schema_dependencies": [
+    "payment_allocations"
+  ]
 }

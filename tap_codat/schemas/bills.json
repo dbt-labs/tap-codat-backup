@@ -3,6 +3,11 @@
     "object"
   ],
   "properties": {
+    "companyId": {
+      "type": [
+        "string"
+      ]
+    },
     "reference": {
       "type": [
         "null",
@@ -12,13 +17,13 @@
     "totalAmount": {
       "type": [
         "null",
-        "integer"
+        "number"
       ]
     },
     "amountDue": {
       "type": [
         "null",
-        "integer"
+        "number"
       ]
     },
     "currency": {
@@ -34,25 +39,7 @@
       ]
     },
     "supplierRef": {
-      "properties": {
-        "id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "companyName": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      },
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false
+      "$ref": "suppliers"
     },
     "issueDate": {
       "type": [
@@ -69,7 +56,7 @@
     "subTotal": {
       "type": [
         "null",
-        "integer"
+        "number"
       ]
     },
     "dueDate": {
@@ -82,9 +69,12 @@
     "taxAmount": {
       "type": [
         "null",
-        "integer"
+        "number"
       ]
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "tap_schema_dependencies": [
+    "suppliers"
+  ]
 }

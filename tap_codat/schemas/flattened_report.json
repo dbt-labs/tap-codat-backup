@@ -1,0 +1,23 @@
+{
+  "type": [
+    "null",
+    "array"
+  ],
+  "items": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string"
+      },
+      "value": {
+        "type": "number"
+      }
+    },
+    "patternProperties": {
+      "name_\\d+": {
+        "type": "string"
+      }
+    },
+    "additionalProperties": false
+  }
+}

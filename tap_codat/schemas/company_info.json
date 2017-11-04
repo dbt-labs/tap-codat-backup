@@ -3,6 +3,11 @@
     "object"
   ],
   "properties": {
+    "companyId": {
+      "type": [
+        "string"
+      ]
+    },
     "registrationNumber": {
       "type": [
         "null",
