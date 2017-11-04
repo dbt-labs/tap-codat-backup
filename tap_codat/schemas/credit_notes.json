@@ -81,5 +81,8 @@
       ]
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "tap_schema_dependencies": [
+    "payment_allocations"
+  ]
 }

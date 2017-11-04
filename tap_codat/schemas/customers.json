@@ -138,6 +138,19 @@
           "object"
         ],
         "properties": {
+          "status": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "modifiedDate": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
           "name": {
             "type": [
               "null",
