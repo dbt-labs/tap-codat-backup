@@ -91,6 +91,7 @@ structure that easily can fit into a flat, tabular structure. To alleviate
 this, this tap restructures this data into this format:
 
 
+```json
 "reports": [
     {
         "assets": [
