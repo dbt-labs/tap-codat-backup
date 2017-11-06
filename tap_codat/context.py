@@ -22,7 +22,6 @@ class Context(object):
         self.client = Client(config)
         self._catalog = None
         self.selected_stream_ids = None
-        self.schema_dicts = None
         self.schema_dt_paths = None
         self.cache = {}
 
@@ -37,10 +36,6 @@ class Context(object):
             [s.tap_stream_id for s in catalog.streams
              if s.is_selected()]
         )
-        self.schema_dicts = {
-            stream.tap_stream_id: stream.schema.to_dict()
-            for stream in catalog.streams
-        }
         self.schema_dt_paths = {
             stream.tap_stream_id: find_dt_paths(stream.schema)
             for stream in catalog.streams
