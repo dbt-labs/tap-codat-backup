@@ -14,6 +14,21 @@
         "string"
       ]
     },
+    "balance": {
+        "type": ["null", "string"]
+    },
+    "accountNumber": {
+        "type": ["null", "string"]
+    },
+    "sortCode": {
+        "type": ["null", "string"]
+    },
+    "availableBalance": {
+        "type": ["null", "string"]
+    },
+    "iban": {
+        "type": ["null", "string"]
+    },
     "details": {
       "type": [
         "null",
@@ -29,6 +44,12 @@
             "type": [
               "null",
               "number"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "string"
             ]
           },
           "date": {

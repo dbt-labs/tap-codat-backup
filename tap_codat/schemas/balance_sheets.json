@@ -9,6 +9,13 @@
         "string"
       ]
     },
+    "status": {
+      "type": [
+        "null",
+        "object",
+        "string"
+      ]
+    },
     "currency": {
       "type": [
         "null",

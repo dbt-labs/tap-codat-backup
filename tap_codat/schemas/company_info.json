@@ -14,6 +14,12 @@
         "string"
       ]
     },
+    "createdDate": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "companyLegalName": {
       "type": [
         "null",
