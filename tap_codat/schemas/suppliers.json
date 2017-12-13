@@ -1,6 +1,7 @@
 {
   "type": [
-    "object"
+    "object",
+    "null"
   ],
   "properties": {
     "companyId": {
@@ -11,6 +12,13 @@
     "emailAddress": {
       "type": [
         "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "object",
         "string"
       ]
     },

@@ -97,6 +97,7 @@ def flatten_report(item, parent_names=[]):
     item_tformed = {
         "name": item["name"],
         "value": item["value"],
+        "accountId": item["accountId"],
     }
     for idx, parent_name in enumerate(parent_names):
         item_tformed["name_" + str(idx)] = parent_name
